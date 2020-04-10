@@ -1,6 +1,6 @@
 import {Component, ContentChild, ElementRef, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 
 
 export interface Post {
@@ -25,7 +25,14 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      address: new FormGroup({
+        country: new FormControl('by'),
+        city: new FormControl('', [Validators.required])
+      }),
+      skills: new FormArray([
+
+      ])
     });
   }
 
@@ -36,4 +43,9 @@ export class AppComponent implements OnInit {
     console.log(formData);
   }
 
+  addSkill() {
+    const addControl = new FormControl('', [Validators.required]);
+    // (<FormArray>this.form.get('skills')).push();
+    (this.form.get('skills') as FormArray).push(addControl);
+  }
 }
