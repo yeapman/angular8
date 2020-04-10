@@ -1,4 +1,5 @@
 import {Component, ContentChild, ElementRef, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
 
 
 export interface Post {
@@ -57,21 +58,40 @@ export class AppComponent implements OnInit {
 
   // ****pipes****
 
-  num: number = Math.E
-  str: string = 'Hello, Yarik';
-  search: string = '';
-  searchFilter = 'title';
+  // num: number = Math.E
+  // str: string = 'Hello, Yarik';
+  // search: string = '';
+  // searchFilter = 'title';
+  //
+  // newPost: newPost[] = [
+  //   {title: 'Beer', name: 'Yarik Pro Proger'},
+  //   {title: 'Coronavirus', name: '2020Hello'},
+  //   {title: 'Third', name: 'CUSTOOOOOOOOOOOOOOm'}
+  // ]
+  //
+  // addNewPost() {
+  //   this.newPost.push({
+  //     title: 'Angular8', name: 'pureChangeDetector'
+  //   });
+  // }
 
-  newPost: newPost[] = [
-    {title: 'Beer', name: 'Yarik Pro Proger'},
-    {title: 'Coronavirus', name: '2020Hello'},
-    {title: 'Third', name: 'CUSTOOOOOOOOOOOOOOm'}
-  ]
 
-  addNewPost() {
-    this.newPost.push({
-      title: 'Angular8', name: 'pureChangeDetector'
-    });
-  }
+
+
+
+
+  // ************************************** ASYNC PIPES *******************************************
+
+  promise: Promise<string> = new Promise<string>(resolve => {
+    setTimeout(() => {
+      resolve('Promise resolved')
+    }, 5000)
+  })
+
+  observData: Observable<Date> = new Observable<Date>(obs => {
+    setInterval( () => {
+      obs.next(new Date())
+    }, 1000)
+  })
 
 }

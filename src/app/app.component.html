@@ -36,15 +36,26 @@
 
 <!--</div>-->
 
-<div class="find">
-  <button (click)="searchFilter='title'">Title</button>
-  <button (click)="searchFilter='name'">Name</button>
+<!--<div class="find">-->
+<!--  <button (click)="searchFilter='title'">Title</button>-->
+<!--  <button (click)="searchFilter='name'">Name</button>-->
 
-  <button (click)="addNewPost()">Add New PoSt</button>
-  <input type="text" [(ngModel)]="search">
+<!--  <button (click)="addNewPost()">Add New PoSt</button>-->
+<!--  <input type="text" [(ngModel)]="search">-->
 
+<!--</div>-->
+<!--<div class="corona" *ngFor="let post of newPost | searchFilterCustom: search:searchFilter">-->
+<!--  <h1>{{post.title}}</h1>-->
+<!--  <h2>{{post.name}}</h2>-->
+<!--</div>-->
+
+
+<!--**********************************************ASYNC PIPES**************************************************-->
+
+<div class="promise">
+ Wait for it...  {{promise | async}}
 </div>
-<div class="corona" *ngFor="let post of newPost | searchFilterCustom: search:searchFilter">
-  <h1>{{post.title}}</h1>
-  <h2>{{post.name}}</h2>
+
+<div class="observable">
+  Wait for {{observData | async | date}}
 </div>
