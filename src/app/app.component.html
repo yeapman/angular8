@@ -24,11 +24,16 @@
           Поле email не может быть пустым
         </small>
 
-        <small *ngIf="form.get('email').errors.em">
+        <small *ngIf="form.get('email').errors.email">
           Введите корректный email
         </small>
 
+        <small *ngIf="form.get('email').errors.restrictedEmail">
+           email {{form.get('email').value}} запрещен
+        </small>
+
       </div>
+
     </div>
 
     <div class="form-control">
