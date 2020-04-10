@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {newPost} from "../app.component";
 
 @Pipe({
-  name: 'searchFilterCustom'
+  name: 'searchFilterCustom',
+  pure: false
 })
 export class SearchFilterCustomPipe implements PipeTransform {
 

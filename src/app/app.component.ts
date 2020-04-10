@@ -68,5 +68,10 @@ export class AppComponent implements OnInit {
     {title: 'Third', name: 'CUSTOOOOOOOOOOOOOOm'}
   ]
 
+  addNewPost() {
+    this.newPost.push({
+      title: 'Angular8', name: 'pureChangeDetector'
+    });
+  }
 
 }
