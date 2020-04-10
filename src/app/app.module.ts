@@ -7,13 +7,19 @@ import {FormsModule} from '@angular/forms';
 import { PostComponent } from './post/post.component';
 import { PostFormComponent } from './post-form/post-form.component';
 import {StyleDirective} from "./directives/style.directive";
+import {MultByPipe} from "./pipes/mult-by.pipe";
+import { ExMatrkPipe } from './pipes/ex-matrk.pipe';
+import { SearchFilterCustomPipe } from './pipes/search-filter-custom.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
     PostFormComponent,
-    StyleDirective
+    StyleDirective,
+    MultByPipe,
+    ExMatrkPipe,
+    SearchFilterCustomPipe
   ],
   imports: [
     BrowserModule,

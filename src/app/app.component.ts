@@ -6,25 +6,31 @@ export interface Post {
   text: string
   id?: any
 }
+
+export interface newPost {
+  title: string
+  name: string
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @ContentChild('info', {static: false}) infoRef: ElementRef;
-  posts: Post[] = [
-    {
-      title: 'Want learn Angular Components',
-      text: 'I am still learning components',
-      id: 1
-    },
-    {
-      title: 'LALA1111111111111111111111111111111222222222222222222',
-      text: 'NANA2222222222222222222222222222222222222',
-      id: 2
-    }
-  ];
+  // @ContentChild('info', {static: false}) infoRef: ElementRef;
+  // posts: Post[] = [
+  //   {
+  //     title: 'Want learn Angular Components',
+  //     text: 'I am still learning components',
+  //     id: 1
+  //   },
+  //   {
+  //     title: 'LALA1111111111111111111111111111111222222222222222222',
+  //     text: 'NANA2222222222222222222222222222222222222',
+  //     id: 2
+  //   }
+  // ];
 
   ngOnInit(): void {
     // setTimeout( () => {
@@ -37,15 +43,30 @@ export class AppComponent implements OnInit {
   }
 
 
-  receiveData(myData: Post) {
-    this.posts.unshift(myData)
-    console.log();
+  // receiveData(myData: Post) {
+  //   this.posts.unshift(myData)
+  //   console.log();
+  //
+  // }
+  //
+  // rem(id: number) {
+  //   console.log(id);
+  //
+  //   this.posts = this.posts.filter(p => p.id !== id)
+  // }
 
-  }
+  // ****pipes****
 
-  rem(id: number) {
-    console.log(id);
+  num: number = Math.E
+  str: string = 'Hello, Yarik';
+  search: string = '';
+  searchFilter = 'title';
 
-    this.posts = this.posts.filter(p => p.id !== id)
-  }
+  newPost: newPost[] = [
+    {title: 'Beer', name: 'Yarik Pro Proger'},
+    {title: 'Coronavirus', name: '2020Hello'},
+    {title: 'Third', name: 'CUSTOOOOOOOOOOOOOOm'}
+  ]
+
+
 }
