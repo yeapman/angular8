@@ -1,19 +1,15 @@
 import {Component, ContentChild, ElementRef, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
-import {MyValidators} from "./my.validators";
+
+import {HttpClient} from "@angular/common/http";
 
 
-export interface Post {
+
+export interface HttpClientTest {
+  completed: boolean
   title: string
-  text: string
-  id?: any
+  id?: number
 }
 
-export interface newPost {
-  title: string
-  name: string
-}
 
 @Component({
   selector: 'app-root',
@@ -21,33 +17,20 @@ export interface newPost {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  form: FormGroup;
+  testData: HttpClientTest[] = [];
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      email: new FormControl('', [Validators.email, Validators.required, MyValidators.restrictedEmails], [MyValidators.unitEmail]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      address: new FormGroup({
-        country: new FormControl('by'),
-        city: new FormControl('', [Validators.required])
-      }),
-      skills: new FormArray([
-      ])
-    });
+    this.getData()
+  }
+
+  getData() {
+    this.http.get<HttpClientTest[]>('https://jsonplaceholder.typicode.com/todos/1')
+      .subscribe(data => {
+        this.testData = data
+      })
   }
 
 
-  submit() {
-    console.log('form', this.form);
-    const formData = {...this.form.value};
-    console.log(formData);
 
-    this.form.reset()
-  }
-
-  addSkill() {
-    const addControl = new FormControl('', [Validators.required]);
-    // (<FormArray>this.form.get('skills')).push();
-    (this.form.get('skills') as FormArray).push(addControl);
-  }
 }

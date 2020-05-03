@@ -1,33 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule, Provider} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { PostComponent } from './post/post.component';
-import { PostFormComponent } from './post-form/post-form.component';
 import {StyleDirective} from "./directives/style.directive";
 import {MultByPipe} from "./pipes/mult-by.pipe";
 import { ExMatrkPipe } from './pipes/ex-matrk.pipe';
-import { SearchFilterCustomPipe } from './pipes/search-filter-custom.pipe';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthInterceptor} from "./auth.interceptor";
+
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor,
+  multi: true
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostComponent,
-    PostFormComponent,
     StyleDirective,
     MultByPipe,
-    ExMatrkPipe,
-    SearchFilterCustomPipe
+    ExMatrkPipe
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
