@@ -9,7 +9,6 @@ import {MultByPipe} from "./pipes/mult-by.pipe";
 import { ExMatrkPipe } from './pipes/ex-matrk.pipe';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth.interceptor";
-import {AboutPageModule} from "./about-page/about-page.modulle";
 import { HomePageComponent } from './home-page/home-page.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
@@ -32,7 +31,6 @@ const INTERCEPTOR_PROVIDER: Provider = {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AboutPageModule
   ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]

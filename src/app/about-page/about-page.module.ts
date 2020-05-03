@@ -8,12 +8,10 @@ import {RouterModule} from "@angular/router";
   ],
   imports: [
     RouterModule.forChild([
-      {path: 'about', component: AboutPageComponent}
+      {path: '', component: AboutPageComponent}
     ])
   ],
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule]
 })
 
 export class AboutPageModule {
