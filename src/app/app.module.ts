@@ -4,13 +4,8 @@ import {NgModule, Provider} from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {StyleDirective} from "./directives/style.directive";
-import {MultByPipe} from "./pipes/mult-by.pipe";
-import { ExMatrkPipe } from './pipes/ex-matrk.pipe';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth.interceptor";
-import { HomePageComponent } from './home-page/home-page.component';
-import { ModalComponent } from './modal/modal.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
@@ -23,11 +18,6 @@ const INTERCEPTOR_PROVIDER: Provider = {
 @NgModule({
   declarations: [
     AppComponent,
-    StyleDirective,
-    MultByPipe,
-    ExMatrkPipe,
-    HomePageComponent,
-    ModalComponent
   ],
   imports: [
     BrowserModule,

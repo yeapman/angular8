@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
-
-import {HomePageComponent} from "./home-page/home-page.component";
+import {AppComponent} from './app.component';
 
 
 const routes: Routes = [
-  {path: '', component: HomePageComponent, pathMatch: 'full'},
-  // {path: 'about', loadChildren: './about-page/about-page.module#AboutPageModule'} OLD Syntax, Lazy Loading another chunk when click /about page
-  {path: 'about', loadChildren: () => import('./about-page/about-page.module').then(m => m.AboutPageModule)}
+  {path: '', component: AppComponent, pathMatch: 'full'},
 ];
 
 @NgModule({
