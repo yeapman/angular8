@@ -17,5 +17,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-// preload Strategy upload first page, than when first page full uploaded, upload next route pages 
+// preload Strategy upload first page, than when first page full uploaded, upload next route pages
 export class AppRoutingModule { }

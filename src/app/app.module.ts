@@ -10,6 +10,7 @@ import { ExMatrkPipe } from './pipes/ex-matrk.pipe';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth.interceptor";
 import { HomePageComponent } from './home-page/home-page.component';
+import { ModalComponent } from './modal/modal.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -23,7 +24,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
     StyleDirective,
     MultByPipe,
     ExMatrkPipe,
-    HomePageComponent
+    HomePageComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
