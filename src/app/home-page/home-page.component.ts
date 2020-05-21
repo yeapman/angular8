@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home-page',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private title: Title,
+    private meta: Meta
+  ) {
+    this.title.setTitle('NEW')
+
+    this.meta.addTags([
+      {name: 'keywords', content: 'angular, google, appcomponent'}
+
+    ])
+  }
 
   ngOnInit() {
   }
